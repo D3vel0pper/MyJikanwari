@@ -17,7 +17,7 @@ import d3vel0pper.com.myjikanwari.R;
 public class ItemAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private String[] itemStrings = {"first","second"};
+    private String[] itemStrings = {"first","second","three","four","five","six","seven"};
 
     private static class ViewHolder {
         public TextView ItemText;
