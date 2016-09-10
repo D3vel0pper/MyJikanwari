@@ -4,10 +4,10 @@
     android:layout_height="match_parent">
     <TextView
         android:id="@+id/item_text"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="40dp"
+        android:layout_height="70dp"
         android:gravity="center_horizontal"
-        android:background="@drawable/grid_border"
+        android:background="#ffffff"
         android:text="testText" />
 
 </LinearLayout>

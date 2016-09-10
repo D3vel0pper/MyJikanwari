@@ -1,5 +1,6 @@
-package d3vel0pper.com.myjikanwari;
+package d3vel0pper.com.myjikanwari.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
 
+import d3vel0pper.com.myjikanwari.R;
 import d3vel0pper.com.myjikanwari.adapter.ItemAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
         GridView gridView = (GridView)findViewById(R.id.item_grid);
         //if u want to use 5 columns u should set numColumns
 //        gridView.setNumColumns(5);
-        gridView.setAdapter(new ItemAdapter(this));
+        try{
+            gridView.setAdapter(new ItemAdapter(this));
+        } catch(NullPointerException e){
+            e.printStackTrace();
+        }
 
     }
 
@@ -53,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this,SettingActivity.class);
+            startActivity(intent);
             return true;
         }
 
