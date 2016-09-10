@@ -1,20 +1,14 @@
 package d3vel0pper.com.myjikanwari.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import d3vel0pper.com.myjikanwari.R;
 
@@ -52,9 +46,9 @@ public class ItemAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent){
         ViewHolder holder;
         if(convertView == null){
-            convertView = mLayoutInflater.inflate(R.layout.items, null);
+            convertView = mLayoutInflater.inflate(R.layout.top_item, null);
             holder = new ViewHolder();
-            holder.ItemText = (TextView)convertView.findViewById(R.id.item_text);
+            holder.ItemText = (TextView)convertView.findViewById(R.id.top_text);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder)convertView.getTag();
