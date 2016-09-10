@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         GridView gridView = (GridView)findViewById(R.id.item_grid);
+        //if u want to use 5 columns u should set numColumns
+//        gridView.setNumColumns(5);
         gridView.setAdapter(new ItemAdapter(this));
 
     }

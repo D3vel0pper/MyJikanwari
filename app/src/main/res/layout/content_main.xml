@@ -12,13 +12,15 @@
         android:id="@+id/item_grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="5"
+        android:layout_margin="4dp"
+        android:numColumns="6"
         android:columnWidth="40dp"
-        android:minHeight="40dp"
+        android:minHeight="70dp"
         android:verticalSpacing="2dp"
         android:horizontalSpacing="2dp"
         android:stretchMode="columnWidth"
-        android:gravity="center">
+        android:gravity="center"
+        android:visibility="visible">
 
     </GridView>
 
