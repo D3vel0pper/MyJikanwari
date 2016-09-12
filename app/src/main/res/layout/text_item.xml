@@ -4,6 +4,9 @@
     android:layout_height="match_parent">
     <TextView
         android:id="@+id/item_text"
+        android:text="sampleText"
+        android:textSize="20sp"
+        android:layout_margin="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>
