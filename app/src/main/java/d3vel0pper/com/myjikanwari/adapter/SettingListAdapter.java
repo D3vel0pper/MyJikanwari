@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.Spinner;
@@ -37,7 +38,7 @@ public class SettingListAdapter extends BaseAdapter {
 
     @Override
     public int getCount(){
-        return 0;
+        return 3;
     }
 
     @Override
@@ -60,16 +61,23 @@ public class SettingListAdapter extends BaseAdapter {
                     //choose day of week
                     convertView = mLayoutInflater.inflate(R.layout.checkbox_item, null);
                     holder.itemCheckbox = (CheckBox)convertView.findViewById(R.id.item_checkbox);
+
                     break;
                 case 1:
                     //choose number of periods
                     convertView = mLayoutInflater.inflate(R.layout.spinner_item, null);
                     holder.itemSpinner = (Spinner) convertView.findViewById(R.id.item_spinner);
+                    ArrayAdapter adapter1 = ArrayAdapter.
+                            createFromResource(this.mContext,R.array.notifier_time,R.layout.support_simple_spinner_dropdown_item);
+                    holder.itemSpinner.setAdapter(adapter1);
                     break;
                 case 2:
                     //choose notifier time
                     convertView = mLayoutInflater.inflate(R.layout.spinner_item, null);
                     holder.itemSpinner = (Spinner)convertView.findViewById(R.id.item_spinner);
+                    ArrayAdapter adapter2 = ArrayAdapter.
+                            createFromResource(this.mContext,R.array.number_periods,R.layout.support_simple_spinner_dropdown_item);
+                    holder.itemSpinner.setAdapter(adapter2);
                     break;
             }
             convertView.setTag(holder);
