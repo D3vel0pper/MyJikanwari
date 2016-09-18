@@ -1,19 +1,6 @@
 <resources>
     <string name="app_name">MyJikanwari</string>
     <string name="action_settings">Settings</string>
-    <string-array name="number_periods">
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-    </string-array>
-    <string-array name="notifier_time">
-        <item>授業開始時</item>
-        <item>開始5分前</item>
-        <item>開始10分前</item>
-        <item>開始20分前</item>
-        <item>開始30分前</item>
-    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

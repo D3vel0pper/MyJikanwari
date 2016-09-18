@@ -15,6 +15,7 @@ import java.util.List;
 
 import d3vel0pper.com.myjikanwari.R;
 import d3vel0pper.com.myjikanwari.adapter.SettingListAdapter;
+import d3vel0pper.com.myjikanwari.fragment.PrefFragment;
 import d3vel0pper.com.myjikanwari.fragment.SettingFragment;
 
 /**
@@ -32,10 +33,12 @@ public class SettingActivity extends AppCompatActivity {
         toolbar.setTitle("Setting");
         setSupportActionBar(toolbar);
 
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction
-                = fm.beginTransaction();
-        fragmentTransaction.add(R.id.container,SettingFragment.newInstance()).commit();
+//        FragmentManager fm = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction
+//                = fm.beginTransaction();
+//        fragmentTransaction.add(R.id.container,SettingFragment.newInstance()).commit();
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container,new PrefFragment()).commit();
     }
 
 }

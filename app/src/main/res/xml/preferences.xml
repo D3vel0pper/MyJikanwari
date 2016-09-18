@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Settings" >
+
+        <MultiSelectListPreference
+            android:title="曜日指定"
+            android:entries="@array/dayofweeek"
+            android:entryValues="@array/dayofweek_values"
+            android:key="dayofweek"/>
+        <ListPreference
+            android:title="通知時間"
+            android:entries="@array/notifier_time"
+            android:entryValues="@array/notifer_time_values"
+            android:key="notifier_time"/>
+        <ListPreference
+            android:title="時間数設定"
+            android:entries="@array/number_periods"
+            android:entryValues="@array/number_periods"
+            android:key="number_periods"/>
+    </PreferenceCategory>
+</PreferenceScreen>
