@@ -3,9 +3,11 @@ package d3vel0pper.com.myjikanwari.fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.TextView;
 
 import d3vel0pper.com.myjikanwari.R;
 
@@ -29,7 +31,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
     @Override
     public void onSharedPreferenceChanged(SharedPreferences preferences,String key){
         Log.d("PreferenceManage","key = " + key + "changed to"
-                + PreferenceManager.getDefaultSharedPreferences(context).getString(key,""));
+                + PreferenceManager.getDefaultSharedPreferences(context).getString(key,"default"));
     }
 
 }

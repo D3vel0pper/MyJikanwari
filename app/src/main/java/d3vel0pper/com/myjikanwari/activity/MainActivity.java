@@ -9,10 +9,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.GridView;
 
 import d3vel0pper.com.myjikanwari.R;
 import d3vel0pper.com.myjikanwari.adapter.ItemAdapter;
+import d3vel0pper.com.myjikanwari.fragment.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, MainFragment.getInstance())
+                .commit();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,15 +37,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-        GridView gridView = (GridView)findViewById(R.id.item_grid);
-        //if u want to use 5 columns u should set numColumns
-//        gridView.setNumColumns(5);
-        try{
-            gridView.setAdapter(new ItemAdapter(this));
-        } catch(NullPointerException e){
-            e.printStackTrace();
-        }
 
     }
 
