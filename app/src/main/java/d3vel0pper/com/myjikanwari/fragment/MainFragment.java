@@ -1,6 +1,8 @@
 package d3vel0pper.com.myjikanwari.fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import d3vel0pper.com.myjikanwari.R;
+import d3vel0pper.com.myjikanwari.activity.MainActivity;
 import d3vel0pper.com.myjikanwari.adapter.ItemAdapter;
 
 /**
@@ -17,6 +20,7 @@ import d3vel0pper.com.myjikanwari.adapter.ItemAdapter;
 public class MainFragment extends Fragment {
 
     private static MainFragment instance;
+//    private MainActivity parent;
 
     public static MainFragment getInstance(){
         if(instance == null){
@@ -34,6 +38,17 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         super.onCreateView(inflater,container,savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_main,container,false);
+
+        TextView testText = (TextView)view.findViewById(R.id.testText);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String testString = preferences.getString("dayofweek","");
+//        PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("dayofweek","");
+//        PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("notifier_time","default");
+//        PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("number_periods","default");
+        String data = "dayofweek = {" + PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("dayofweek","default")
+                + "}\nnotifier_time = {" + PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("notifier_time","default")
+                + "}\nnumber_periods = {" + PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("number_periods","default");
+        testText.setText(data);
 
         GridView gridView = (GridView)view.findViewById(R.id.item_grid);
         //if u want to use 5 columns u should set numColumns

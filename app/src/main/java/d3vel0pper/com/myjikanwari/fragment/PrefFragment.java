@@ -30,7 +30,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences preferences,String key){
-        Log.d("PreferenceManage","key = " + key + "changed to"
+        Log.i("PreferenceManage","key = " + key + "changed to"
                 + PreferenceManager.getDefaultSharedPreferences(context).getString(key,"default"));
     }
 
