@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">MyJikanwari</string>
     <string name="action_settings">Settings</string>
+    <string name="default_dayofweek">月曜日</string>
+    <string name="default_numberofperiods">4</string>
+    <string name="default_notifiertime">授業開始時</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
