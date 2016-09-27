@@ -2,26 +2,26 @@
 <resources>
     <!-- entries -->
     <string-array name="number_periods">
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
+        <item>@string/four_periods</item>
+        <item>@string/five_periods</item>
+        <item>@string/six_periods</item>
+        <item>@string/seven_periods</item>
     </string-array>
     <string-array name="notifier_time">
-        <item>授業開始時</item>
-        <item>開始5分前</item>
-        <item>開始10分前</item>
-        <item>開始20分前</item>
-        <item>開始30分前</item>
+        <item>@string/notify_juststarted</item>
+        <item>@string/notify_5min</item>
+        <item>@string/notify_10min</item>
+        <item>@string/notify_20min</item>
+        <item>@string/notify_30min</item>
     </string-array>
     <string-array name="dayofweeek">
-        <item>月曜日</item>
-        <item>火曜日</item>
-        <item>水曜日</item>
-        <item>木曜日</item>
-        <item>金曜日</item>
-        <item>土曜日</item>
-        <item>日曜日</item>
+        <item>@string/monday</item>
+        <item>@string/tuesday</item>
+        <item>@string/wednesday</item>
+        <item>@string/thursday</item>
+        <item>@string/friday</item>
+        <item>@string/saturday</item>
+        <item>@string/sunday</item>
     </string-array>
 
     <!-- entry values -->
