@@ -11,6 +11,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import d3vel0pper.com.myjikanwari.R;
@@ -42,16 +43,45 @@ public class MainFragment extends Fragment {
         super.onCreateView(inflater,container,savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_main,container,false);
 
+        setUpFragment(view);
+
+        return view;
+    }
+
+    private void setUpFragment(View view){
         TextView testText = (TextView)view.findViewById(R.id.testText);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
         Set<String> testString = preferences.getStringSet("dayofweek",null);
-//        PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("dayofweek","");
-//        PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("notifier_time","default");
-//        PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("number_periods","default");
         String data = "dayofweek = {" ;
+        //set will returns numbers -> {sunday -> 0, monday -> 1,tuesday -> 2 .....}
         if(testString.size() != 0) {
-            for (int i = 0; i < testString.size(); i++) {
-                data = data + testString.toString();
+            Iterator iterator = testString.iterator();
+            while(iterator.hasNext()) {
+                switch(iterator.next().toString()){
+                    case "0":
+                        data += "sunday";
+                        break;
+                    case "1":
+                        data += "monday";
+                        break;
+                    case "2":
+                        data += "tuesday";
+                        break;
+                    case "3":
+                        data += "wednesday";
+                        break;
+                    case "4":
+                        data += "thursday";
+                        break;
+                    case "5":
+                        data += "friday";
+                        break;
+                    case "6":
+                        data += "saturday";
+                        break;
+                }
+                data += " , ";
             }
         } else {
             data = data + "no-data";
@@ -68,7 +98,13 @@ public class MainFragment extends Fragment {
         } catch(NullPointerException e){
             e.printStackTrace();
         }
-
-        return view;
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        View view = getActivity().findViewById(R.id.container);
+        setUpFragment(view);
+    }
+
 }
