@@ -55,6 +55,7 @@ public class MainFragment extends Fragment {
         Set<String> testString = preferences.getStringSet("dayofweek",null);
         String data = "dayofweek = {" ;
         //set will returns numbers -> {sunday -> 0, monday -> 1,tuesday -> 2 .....}
+        //Also value of ListPreference shows numbers -> {just started -> 0, 5min -> 1, 10min -> 2 .....}
         if(testString.size() != 0) {
             Iterator iterator = testString.iterator();
             while(iterator.hasNext()) {
@@ -86,8 +87,25 @@ public class MainFragment extends Fragment {
         } else {
             data = data + "no-data";
         }
-        data = data + "}\nnotifier_time = {" + PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("notifier_time","default")
-                + "}\nnumber_periods = {" + PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("number_periods","default") + "}";
+        switch(PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("notifier_time","default")){
+            case "0":
+                data += "}\nnotifier_time = {just started";
+                break;
+            case "5":
+                data += "}\nnotifier_time = {5min";
+                break;
+            case "10":
+                data += "}\nnotifier_time = {10min";
+                break;
+            case "20":
+                data += "}\nnotifier_time = {20min";
+                break;
+            case "30":
+                data += "}\nnotifier_time = {30min";
+                break;
+        }
+//        data = data + "}\nnotifier_time = {" + PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("notifier_time","default");
+        data += "}\nnumber_periods = {" + PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("number_periods","default") + "}";
         testText.setText(data);
 
         GridView gridView = (GridView)view.findViewById(R.id.item_grid);

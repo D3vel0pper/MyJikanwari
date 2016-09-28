@@ -33,10 +33,6 @@ public class SettingActivity extends AppCompatActivity {
         toolbar.setTitle("Setting");
         setSupportActionBar(toolbar);
 
-//        FragmentManager fm = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction
-//                = fm.beginTransaction();
-//        fragmentTransaction.add(R.id.container,SettingFragment.newInstance()).commit();
         getFragmentManager().beginTransaction()
                 .replace(R.id.container,new PrefFragment()).commit();
     }
