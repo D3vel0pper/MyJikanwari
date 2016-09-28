@@ -110,7 +110,8 @@ public class MainFragment extends Fragment {
 
         GridView gridView = (GridView)view.findViewById(R.id.item_grid);
         //if u want to use 5 columns u should set numColumns
-//        gridView.setNumColumns(5);
+//        gridView.setNumColumns(Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("number_periods","7")));
+        gridView.setNumColumns(testString.size());
         try{
             gridView.setAdapter(new ItemAdapter(getActivity()));
         } catch(NullPointerException e){

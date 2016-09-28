@@ -26,12 +26,29 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
        super.onCreate(savedInstanceState);
         context = getActivity().getBaseContext();
         addPreferencesFromResource(R.xml.preferences);
+        getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences preferences,String key){
-        Log.i("PreferenceManage","key = " + key + "changed to"
-                + PreferenceManager.getDefaultSharedPreferences(context).getString(key,"default"));
+        switch (key){
+            case "dayofweek":
+                Log.i("PreferenceManage","key = " + key + "changed to "
+                        + PreferenceManager.getDefaultSharedPreferences(context).getStringSet(key,null));
+                break;
+            default:
+                Log.i("PreferenceManage","key = " + key + "changed to "
+                        + PreferenceManager.getDefaultSharedPreferences(context).getString(key,"default"));
+                break;
+        }
+
     }
+
 
 }

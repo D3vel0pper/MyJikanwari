@@ -1,6 +1,8 @@
 package d3vel0pper.com.myjikanwari.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import d3vel0pper.com.myjikanwari.R;
 
@@ -59,7 +63,15 @@ public class ItemAdapter extends BaseAdapter {
 
     private void makeList(){
         assignList();
-        for(int i= 0;i < 42;i++){
+        int periods = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(mContext).getString("number_periods","7"));
+        Set<String> daysSet = PreferenceManager.getDefaultSharedPreferences(mContext).getStringSet("dayofweek",null);
+        int days;
+        if(daysSet != null){
+            days = daysSet.size();
+        } else {
+            days = 0;
+        }
+        for(int i= 0;i < (periods * days);i++){
             this.itemList.add("-");
         }
     }
